@@ -178,7 +178,7 @@ class PeripheralModelState:
             self.model_per_address[address] = m
 
     def merge(self, other):
-        print "* Merging %s" % self.name
+        print("* Merging %s" % self.name)
 
         self.merged_data.append(other.reads)
 

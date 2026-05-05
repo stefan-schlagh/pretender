@@ -235,7 +235,7 @@ class PretenderModel:
                 op, id, addr, val, pc, size, timestamp = full_trace[state]
                 addr = int(addr)
                 if op == "ENTER":
-                    print repr(addr), repr(irq_num)
+                    print(repr(addr), repr(irq_num))
                     if addr == irq_num and not disabled:
                         timing = timestamp - prev_time
                         timings.append(timing)
@@ -245,11 +245,11 @@ class PretenderModel:
                         prev_time = timestamp
                         entered = False
                 elif op == 'WRITE' and addr == trigger_addr and val != trigger_val:
-                    print "Interrupt disabled by write of %#08x" % val
+                    print("Interrupt disabled by write of %#08x" % val)
                     disabled = True
                     # I think we just turned it off.
                 elif op == 'WRITE' and addr == trigger_addr and val == trigger_val:
-                    print "Turned on via write to trigger"
+                    print("Turned on via write to trigger")
                     disabled = False
             logger.info("Got timings for interrupt %d" % (irq_num))
             logger.info("Mean: %f" % numpy.mean(timings))
@@ -323,9 +323,9 @@ class PretenderModel:
         ##
         self.peripheral_clusters = cluster_peripherals(list(self.accessed_addresses))
         for x in self.peripheral_clusters:
-            print "%d:" % x
+            print("%d:" % x)
             for y in self.peripheral_clusters[x]:
-                print hex(y)
+                print(hex(y))
         #import IPython; IPython.embed()
         ##
         # Step 2: Associate interrupts, their triggers, and their timings with a
@@ -658,8 +658,8 @@ class PretenderModel:
                 "No model found for %s, using SimpleStorageModel...",
                 hex(address))
             self.model_per_address[address] = SimpleStorageModel()
-            print "No model found for %s, using SimpleStorageModel..." % hex(
-                address)
+            print("No model found for %s, using SimpleStorageModel..." % hex(
+                address))
 
         #print self.model_per_address[address]
         return self.model_per_address[address].read(address, size)
