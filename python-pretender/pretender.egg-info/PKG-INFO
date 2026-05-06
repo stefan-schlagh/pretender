@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: pretender
+Version: 2.0a0
+Summary: This is the Python library for Pretender
+Home-page: https://seclab.cs.ucsb.edu
+Author: Eric Gustafson and Chad Spensky
+Author-email: cspensky@cs.ucsb.edu
+Requires: avatar2
+Requires: PyYAML
+Requires: pyserial
+Requires: scipy
+Requires: numpy
+Requires: statsmodels
+Dynamic: author
+Dynamic: author-email
+Dynamic: home-page
+Dynamic: requires
+Dynamic: summary
